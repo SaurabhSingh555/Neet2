@@ -10,3 +10,4 @@ sqlalchemy
 python-multipart
 python-dateutil
 tqdm
+gunicorn
