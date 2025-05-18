@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="hero-section bg-light py-5 mb-5">
+    <div class="container text-center">
+        <h1 class="display-4">NEET Preparation Platform</h1>
+        <p class="lead">Practice previous year questions and boost your NEET score</p>
+        <a href="#subjects" class="btn btn-success btn-lg mt-3">Get Started</a>
+    </div>
+</div>
+
+<div class="container" id="subjects">
+    <h2 class="text-center mb-4">Select a Subject</h2>
+    <div class="row">
+        {% for subject in subjects %}
+        <div class="col-md-3 mb-4">
+            <div class="card h-100 shadow">
+                <div class="card-body text-center">
+                    <i class="fas fa-{{ 'leaf' if subject == 'Botany' else 'bug' if subject == 'Zoology' else 'atom' if subject == 'Physics' else 'flask' }} fa-4x mb-3 text-success"></i>
+                    <h4 class="card-title">{{ subject }}</h4>
+                    <p class="card-text">Practice {{ subject }} questions from previous years</p>
+                    <a href="{{ url_for('subject', subject=subject) }}" class="btn btn-outline-success">Select</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="bg-light py-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Why Practice Previous Year Questions?</h2>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item bg-light"><i class="fas fa-check text-success me-2"></i> Understand exam pattern</li>
+                    <li class="list-group-item bg-light"><i class="fas fa-check text-success me-2"></i> Identify important topics</li>
+                    <li class="list-group-item bg-light"><i class="fas fa-check text-success me-2"></i> Improve time management</li>
+                    <li class="list-group-item bg-light"><i class="fas fa-check text-success me-2"></i> Boost confidence</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h3 class="card-title">Quick Stats</h3>
+                        <div class="row text-center">
+                            <div class="col-6 mb-3">
+                                <div class="p-3 bg-success text-white rounded">
+                                    <h4>4</h4>
+                                    <p>Subjects</p>
+                                </div>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <div class="p-3 bg-info text-white rounded">
+                                    <h4>10+</h4>
+                                    <p>Years Covered</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-3 bg-warning text-white rounded">
+                                    <h4>1000+</h4>
+                                    <p>Questions</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-3 bg-danger text-white rounded">
+                                    <h4>24/7</h4>
+                                    <p>Access</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

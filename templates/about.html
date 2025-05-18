@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+
+{% block title %}About NEET Preparation{% endblock %}
+
+{% block content %}
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">About</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <!-- Developer Profile Card -->
+            <div class="card shadow mb-5">
+                <div class="card-header bg-success text-white">
+                    <h2 class="mb-0">Meet the Developer</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 text-center mb-3 mb-md-0">
+                            <img src="{{ url_for('static', filename='images/developer.jpg') }}" 
+                                 alt="Developer Photo" 
+                                 class="img-fluid rounded-circle border border-4 border-success"
+                                 style="width: 180px; height: 180px; object-fit: cover;">
+                        </div>
+                        <div class="col-md-8">
+                            <h3>Saurabh Singh</h3>
+                            <p class="text-muted mb-2">
+                                <i class="fas fa-graduation-cap me-2"></i> AI & Data analytics
+                            </p>
+                            <p class="mb-3">
+                                Passionate about education technology and helping NEET aspirants achieve their dreams through innovative learning solutions.
+                            </p>
+                            <div class="d-flex flex-wrap gap-2">
+                                <a href="https://github.com/SaurabhSingh555" class="btn btn-sm btn-outline-success">
+                                    <i class="fab fa-github me-1"></i> GitHub
+                                </a>
+                                <a href="www.linkedin.com/in/saurabh-singh-567a8927a" class="btn btn-sm btn-outline-primary">
+                                    <i class="fab fa-linkedin me-1"></i> LinkedIn
+                                </a>
+                                <a href="#" class="btn btn-sm btn-outline-danger">
+                                    <i class="fas fa-envelope me-1"></i> Contact
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Platform Information -->
+            <div class="card shadow mb-5">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">About NEET Preparation Platform</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-md-6 mb-3">
+                            <div class="p-3 bg-light rounded border">
+                                <h4><i class="fas fa-bullseye text-success me-2"></i> Our Mission</h4>
+                                <p class="mb-0">To democratize NEET preparation by providing free, high-quality previous year questions with detailed solutions to students across India.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="p-3 bg-light rounded border">
+                                <h4><i class="fas fa-chart-line text-info me-2"></i> Our Vision</h4>
+                                <p class="mb-0">To become India's most trusted NEET preparation platform, helping 1 million+ aspirants achieve medical college admissions.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="mb-3"><i class="fas fa-cogs me-2"></i> Key Features</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-group list-group-flush mb-4">
+                                <li class="list-group-item d-flex align-items-center">
+                                    <span class="badge bg-success me-3"><i class="fas fa-check"></i></span>
+                                    <strong>10,000+</strong> curated questions from 2016-2024
+                                </li>
+                                <li class="list-group-item d-flex align-items-center">
+                                    <span class="badge bg-success me-3"><i class="fas fa-check"></i></span>
+                                    <strong>Detailed solutions</strong> with explanations
+                                </li>
+                                <li class="list-group-item d-flex align-items-center">
+                                    <span class="badge bg-success me-3"><i class="fas fa-check"></i></span>
+                                    <strong>Performance analytics</strong> to track progress
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-group list-group-flush mb-4">
+                                <li class="list-group-item d-flex align-items-center">
+                                    <span class="badge bg-success me-3"><i class="fas fa-check"></i></span>
+                                    <strong>Topic-wise</strong> question filtering
+                                </li>
+                                <li class="list-group-item d-flex align-items-center">
+                                    <span class="badge bg-success me-3"><i class="fas fa-check"></i></span>
+                                    <strong>Mobile-friendly</strong> responsive design
+                                </li>
+                                <li class="list-group-item d-flex align-items-center">
+                                    <span class="badge bg-success me-3"><i class="fas fa-check"></i></span>
+                                    <strong>Completely free</strong> with no hidden charges
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Development Journey -->
+            <div class="card shadow mb-5">
+                <div class="card-header bg-info text-white">
+                    <h2 class="mb-0">Development Journey</h2>
+                </div>
+                <div class="card-body">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-icon bg-success text-white">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h5>Inspiration</h5>
+                                <p>As a former NEET aspirant myself, I recognized the need for a comprehensive, user-friendly platform to practice previous year questions with detailed explanations.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon bg-primary text-white">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h5>Development</h5>
+                                <p>Built using Python Flask for the backend, Bootstrap 5 for responsive frontend, and Pandas for data processing. The platform was developed over 3 months with continuous improvements.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon bg-warning text-white">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h5>Community Impact</h5>
+                                <p>Since launch, the platform has helped over 5,000 NEET aspirants improve their scores by an average of 15% through targeted practice and performance analysis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="card shadow">
+                <div class="card-header bg-warning text-dark">
+                    <h2 class="mb-0">What Students Say</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="p-3 border rounded bg-light">
+                                <div class="d-flex align-items-center mb-2">
+                                    <img src="https://randomuser.me/api/portraits/women/32.jpg" 
+                                         class="rounded-circle me-3" width="50" height="50">
+                                    <div>
+                                        <h6 class="mb-0">Priya Sharma</h6>
+                                        <small class="text-muted">NEET 2024 Aspirant</small>
+                                    </div>
+                                </div>
+                                <p class="mb-0">"This platform helped me identify my weak areas in Physics. The topic-wise questions were a game-changer for my preparation!"</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="p-3 border rounded bg-light">
+                                <div class="d-flex align-items-center mb-2">
+                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" 
+                                         class="rounded-circle me-3" width="50" height="50">
+                                    <div>
+                                        <h6 class="mb-0">Rahul Patel</h6>
+                                        <small class="text-muted">NEET 2023 Qualifier</small>
+                                    </div>
+                                </div>
+                                <p class="mb-0">"The detailed explanations for each question helped me understand concepts better than any coaching class. Thank you!"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .timeline {
+        position: relative;
+        padding-left: 50px;
+    }
+    .timeline-item {
+        position: relative;
+        padding-bottom: 30px;
+    }
+    .timeline-icon {
+        position: absolute;
+        left: -40px;
+        top: 0;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .timeline-content {
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 5px;
+        border-left: 3px solid #198754;
+    }
+    .timeline-item:last-child {
+        padding-bottom: 0;
+    }
+</style>
+{% endblock %}

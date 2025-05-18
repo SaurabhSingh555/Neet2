@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %}{{ subject }} Questions{% endblock %}
+
+{% block content %}
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ subject }}</li>
+        </ol>
+    </nav>
+
+    <h2 class="mb-4">{{ subject }} Previous Year Questions</h2>
+    
+    <div class="card shadow mb-5">
+        <div class="card-header bg-success text-white">
+            <h4 class="mb-0">Select Year and Options</h4>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="{{ url_for('quiz') }}">
+                <input type="hidden" name="subject" value="{{ subject }}">
+                
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="year" class="form-label">Select Year</label>
+                        <select class="form-select" id="year" name="year" required>
+                            {% for year in years %}
+                            <option value="{{ year }}">{{ year }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="num_questions" class="form-label">Number of Questions</label>
+                        <select class="form-select" id="num_questions" name="num_questions">
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="topic" class="form-label">Select Topic (Optional)</label>
+                    <select class="form-select" id="topic" name="topic">
+                        <option value="All">All Topics</option>
+                        <!-- Topics will be loaded via JavaScript -->
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-success">Start Quiz</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="card shadow">
+        <div class="card-header bg-info text-white">
+            <h4 class="mb-0">About {{ subject }}</h4>
+        </div>
+        <div class="card-body">
+            {% if subject == 'Botany' %}
+            <p>Botany is the scientific study of plants, including their physiology, structure, genetics, ecology, distribution, classification, and economic importance. In NEET, Botany carries significant weightage with questions from topics like Plant Physiology, Genetics, Ecology, and Morphology.</p>
+            {% elif subject == 'Zoology' %}
+            <p>Zoology is the branch of biology that studies the animal kingdom, including the structure, embryology, evolution, classification, habits, and distribution of all animals. Important NEET topics include Human Physiology, Animal Diversity, Evolution, and Reproduction.</p>
+            {% elif subject == 'Physics' %}
+            <p>Physics in NEET covers topics from Mechanics, Thermodynamics, Electrodynamics, Optics, and Modern Physics. It requires strong conceptual understanding and problem-solving skills. Practicing previous year questions helps in understanding the question pattern and difficulty level.</p>
+            {% elif subject == 'Chemistry' %}
+            <p>Chemistry is divided into Physical, Organic, and Inorganic Chemistry for NEET. Important topics include Chemical Bonding, Equilibrium, Thermodynamics, Hydrocarbons, and Coordination Compounds. Regular practice of numerical and conceptual questions is essential.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const yearSelect = document.getElementById('year');
+    const topicSelect = document.getElementById('topic');
+    const subject = '{{ subject }}';
+    
+    // Load topics when year changes
+    yearSelect.addEventListener('change', function() {
+        const year = this.value;
+        
+        fetch(`/get_topics?subject=${subject}&year=${year}`)
+            .then(response => response.json())
+            .then(topics => {
+                // Clear existing options except the first one
+                while (topicSelect.options.length > 1) {
+                    topicSelect.remove(1);
+                }
+                
+                // Add new topic options
+                topics.forEach(topic => {
+                    const option = document.createElement('option');
+                    option.value = topic;
+                    option.textContent = topic;
+                    topicSelect.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error loading topics:', error));
+    });
+    
+    // Trigger change event to load topics for default year
+    yearSelect.dispatchEvent(new Event('change'));
+});
+</script>
+{% endblock %}
